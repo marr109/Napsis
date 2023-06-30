@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "correo": "usuario1@example.com",
+      "contrasena": "contrasena1"
+    },
+    {
+      "id": 2,
+      "correo": "usuario2@example.com",
+      "contrasena": "contrasena2"
+    },
+    {
+      "id": 3,
+      "correo": "usuario3@example.com",
+      "contrasena": "contrasena3"
+    }
+  ]
+  

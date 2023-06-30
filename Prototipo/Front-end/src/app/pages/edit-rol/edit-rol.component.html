@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Modificar Usuario</h1>
+<div mat-dialog-content>
+  <p>Rol:</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Rol</mat-label>
+    <input matInput [(ngModel)]="data.rol">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button  class="btn btn-primary me-5" (click)="onNoClick()">Cancelar</button>
+  <button  class="btn btn-primary" [mat-dialog-close]="data.rol" cdkFocusInitial>Guardar</button>
+</div>
+

@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "nombre": "John Doe",
+      "mail": "johndoe@example.com",
+      "asunto": "Consulta",
+      "mensaje": "Hola, tengo una pregunta sobre el servicio que ofrecen."
+    },
+    {
+      "id": 2,
+      "nombre": "Jane Smith",
+      "mail": "janesmith@example.com",
+      "asunto": "Solicitud de información",
+      "mensaje": "Me gustaría recibir más infromación respecto a la forma de donar."
+    },
+    {
+      "id": 3,
+      "nombre": "Alice Johnson",
+      "mail": "alicejohnson@example.com",
+      "asunto": "Comentario",
+      "mensaje": "Quería expresar mi satisfacción con el aporte que le hacen a la sociedad."
+    }
+  ]
+  

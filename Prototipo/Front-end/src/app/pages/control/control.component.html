@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <h2>Panel de Control</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Correo electrónico</th>
+          <th>Rol</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of listUsers">
+          <td>{{ user.usuario }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.rol }}</td>
+          <td>
+            <button type="submit" class="btn btn-outline-warning btn-sm" (click)="openDialog(user.usuario, user.rol)">Modificar</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteUser(user.usuario)">Eliminar</button>
+          </td>
+        </tr>
+        <tr *ngIf="listUsers.length === 0">
+            <td colspan="5">No hay usuarios.</td>
+          </tr>
+      </tbody>
+    </table>
+     <!-- <input class="form-control" placeholder="Buscar por correo electrónico..." [(ngModel)]="searchText"> -->
+     <!--<button class="btn btn-info mt-2" (click)="searchUserByEmail(searchText)">Buscar</button> -->
+  </div>
+
+  

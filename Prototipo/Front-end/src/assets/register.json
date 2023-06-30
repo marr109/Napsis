@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "nombre": "Usuario 1",
+      "correo": "usuario1@example.com",
+      "usuario": "Juanito",
+      "contrasena": "contrasena1"
+    },
+    {
+      "id": 2,
+      "nombre": "Usuario 2",
+      "correo": "usuario2@example.com",
+      "usuario": "Pepito",
+      "contrasena": "contrasena2"
+    },
+    {
+      "id": 3,
+      "nombre": "Usuario 3",
+      "correo": "usuario3@example.com",
+      "usuario": "Dieguito",
+      "contrasena": "contrasena3"
+    }
+  ]
+  

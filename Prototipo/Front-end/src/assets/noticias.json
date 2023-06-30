@@ -1,0 +1,21 @@
+[
+    {
+      "id":1,
+      "src":"../../assets/noticias/destacadas/1.jpg",
+      "fecha":"09 de junio, 2023",
+      "titulo":"Hoy se conformó mesa interministerial para avanzar a una Sistema Nacional de Ayudas Técnicas",
+      "url":"https://www.senadis.gob.cl/sala_prensa/d/noticias/8977/hoy-se-conformo-mesa-interministerial-para-avanzar-a-una-sistema-nacional-de-ayudas-tecnicas"
+    },{
+      "id":2,
+      "src":"../../assets/noticias/destacadas/2.jpg",
+      "fecha":"29 de mayo, 2023",
+      "titulo":"Proyectos de ocho regiones reciben financiamiento para inclusión laboral",
+      "url":"https://www.cooperativa.cl/noticias/pais/regiones/proyectos-de-ocho-regiones-reciben-financiamiento-para-inclusion-laboral/2023-05-29/123702.html"
+    },{
+      "id":3,
+      "src":"../../assets/noticias/destacadas/3.jpg",
+      "titulo":"“Salgo a la calle y nadie piensa que es mi hijo”: el relato de una mamá primeriza en silla de ruedas",
+      "fecha":"10 de mayo, 2023",
+      "url":"https://www.latercera.com/paula/salgo-a-la-calle-y-nadie-piensa-que-es-mi-hijo-el-relato-de-una-mama-primeriza-en-silla-de-ruedas/"
+  }
+]
