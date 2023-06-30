@@ -18,7 +18,6 @@ const express_1 = __importDefault(require("express"));
 const user_1 = __importDefault(require("../routes/user"));
 const cors_1 = __importDefault(require("cors"));
 const user_2 = require("./user");
-const new_1 = require("./new");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -44,7 +43,6 @@ class Server {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield user_2.User.sync();
-                yield new_1.New.sync();
             }
             catch (error) {
                 console.log('database not found');

@@ -4,3 +4,19 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
+app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; // Elige un número alto para asegurarte de que el header siempre esté en la parte superior
+  }
+
+  router-outlet {
+    padding-top: 50px; // Ajusta este valor al tamaño de tu header
+  }
+  
+  .mat-drawer-content {
+    padding-top: 50px; // Ajusta este valor al tamaño de tu header
+  }
+  
