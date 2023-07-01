@@ -10,9 +10,9 @@ router.post('/login',loginUser);
 
 // metodos alumnos
 
-router.get('/alumnos/:alumnoId/asistencias', getAsistenciaAlumno);
-router.get('/alumnos/:alumnoId/calificaciones', getCalificacionesAlumno);
-router.get('/alumnos/:alumnoId/calendario', getCalendarioEvaluaciones);
+router.get('/:alumnoId/asistencias/:asignaturaId', getAsistenciaAlumno);
+router.get('/:alumnoId/calificaciones/:asignaturaId', getCalificacionesAlumno);
+router.get('/:alumnoId/calendario/:/:asignaturaId', getCalendarioEvaluaciones);
 
 
 

@@ -19,7 +19,7 @@ export class CalificacionesComponent implements OnInit {
     const alumnoId = 1; // Reemplaza el valor estático con el ID del alumno actualmente conectado
     const asignaturaId = 1; // Reemplaza el valor estático con el ID de la asignatura
 
-    this.userService.getCalificacionesAlumnoAsignatura(alumnoId, asignaturaId).subscribe(
+    this.userService.getCalificacionesAlumno(alumnoId, asignaturaId).subscribe(
       (data) => {
         this.calificaciones = data;
       },

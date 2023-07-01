@@ -44,15 +44,21 @@ export class UserService {
     return this.http.get(`${this.myAppUrl}/users/${email}`);
   }
 
-  // Metodos para visualizar
+  // metodos de alumno
 
-  getCalendarioEvaluaciones(alumnoId: number): Observable<any> {
-    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/alumnos/${alumnoId}/calendario`);
+  getCalendarioEvaluaciones(alumnoId: number, asignaturaId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/calendario/${asignaturaId}`);
   }
-
-  getCalificacionesAlumnoAsignatura(alumnoId: number, asignaturaId: number): Observable<any> {
-    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/alumnos/${alumnoId}/calificaciones/${asignaturaId}`);
+  
+  getCalificacionesAlumno(alumnoId: number, asignaturaId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/calificaciones/${asignaturaId}`);
   }
+  
+  getAsistenciaAlumno(alumnoId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/asistencia`);
+  }
+  
+  
 
 
 
