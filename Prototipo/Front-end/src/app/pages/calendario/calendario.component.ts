@@ -27,14 +27,15 @@ export class CalendarioComponent implements OnInit {
     this.http
       .get<any[]>('/api/alumnos/' + alumnoId + '/calendario')
       .subscribe((data) => {
-        const events = data.map((asignatura) => {
-          return asignatura.Evaluacions.map((evaluacion: any) => ({
-            title: evaluacion.nombrePrueba,
-            date: evaluacion.fecha
-          }));
-        });
+        const events = data.flatMap((asignatura) =>
+          asignatura.Evaluacions.map((evaluacion: any) => ({
+          title: evaluacion.nombrePrueba,
+          date: evaluacion.fecha
+        }))
+    );
 
-        this.calendarOptions.events = events.flat();
-      });
+    this.calendarOptions.events = events;
+  });
+
   }
 }

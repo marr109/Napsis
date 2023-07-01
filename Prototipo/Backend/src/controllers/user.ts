@@ -109,7 +109,7 @@ export const getAsistenciaAlumno = async (req: Request, res: Response) => {
   
     try {
       const calificaciones = await Calificacion.findAll({
-        where: { UserId: alumnoId },
+        where: { UserId: alumnoId},
       });
   
       res.json(calificaciones);
