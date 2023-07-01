@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { User } from '../models/user';
+import  User  from '../models/user';
 
-// Modificar datos de un usuario por nombre de usuario
+//Modificar datos de un usuario por nombre de usuario
 
 export const updateUser_1 = async (req: Request, res: Response) => {
   const { usuario, rol } = req.body;
@@ -30,7 +30,7 @@ export const updateUser_1 = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener lista de usuarios
+//Obtener lista de usuarios
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.findAll();
@@ -42,26 +42,26 @@ export const getUsers = async (req: Request, res: Response) => {
   }
 };
 
-// Buscar un usuario por nombre de usuario
-// export const getUserByEmail = async (req: Request, res: Response) => {
-//   const { email } = req.body;
+//Buscar un usuario por nombre de usuario
+export const getUserByEmail = async (req: Request, res: Response) => {
+  const { email } = req.body;
 
-//   try {
-//     const user = await User.findOne({ where: { email } });
-//     if (!user) {
-//       return res.status(404).json({
-//         msg: 'El correo electronico no ha sido encontrado'
-//       });
-//     }
-//     res.json(user);
-//   } catch (error) {
-//     res.status(500).json({
-//       msg: `Hubo un error al buscar el correo electronico`
-//     });
-//   }
-// };
+  try {
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      return res.status(404).json({
+        msg: 'El correo electronico no ha sido encontrado'
+      });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({
+      msg: `Hubo un error al buscar el correo electronico`
+    });
+  }
+};
 
-// Eliminar un usuario por nombre de usuario
+///Eliminar un usuario por nombre de usuario
 export const deleteUser = async (req: Request, res: Response) => {
   const { usuario } = req.params;
 
@@ -86,3 +86,7 @@ export const deleteUser = async (req: Request, res: Response) => {
   }
   
 };
+
+
+
+

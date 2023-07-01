@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/conection';
-import Alumno from './alumno';
+import User from './user';
 import Asignatura from './asignatura';
 
 const Asistencia = sequelize.define('Asistencia', {
@@ -17,9 +17,22 @@ const Asistencia = sequelize.define('Asistencia', {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
+  UserId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id',
+    },
+  },
+  AsignaturaId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Asignatura,
+      key: 'id',
+    },
+  },
 });
-
-Asistencia.belongsTo(Alumno);
-Asistencia.belongsTo(Asignatura);
 
 export default Asistencia;

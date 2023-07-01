@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/conection';
-import Alumno from './Alumno';
-import Profesor from './Profesor';
+import User from './user';
+import Establecimiento from './establecimiento';
 
 const Curso = sequelize.define('Curso', {
   id: {
@@ -13,9 +13,22 @@ const Curso = sequelize.define('Curso', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  UserId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id',
+    },
+  },
+  EstablecimientoId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Establecimiento,
+      key: 'id',
+    },
+  },
 });
-
-Curso.hasMany(Alumno);
-Curso.hasMany(Profesor);
 
 export default Curso;

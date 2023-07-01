@@ -1,25 +1,20 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/conection';
-import User from './user';
 import Asignatura from './asignatura';
 
-const Calificacion = sequelize.define('Calificacion', {
+const Evaluacion = sequelize.define('Evaluacion', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  nota: {
-    type: DataTypes.FLOAT,
+  fecha: {
+    type: DataTypes.DATE,
     allowNull: false,
   },
-  UserId: {
-    type: DataTypes.INTEGER,
+  nombrePrueba: {
+    type: DataTypes.STRING,
     allowNull: false,
-    references: {
-      model: User,
-      key: 'id',
-    },
   },
   AsignaturaId: {
     type: DataTypes.INTEGER,
@@ -31,4 +26,4 @@ const Calificacion = sequelize.define('Calificacion', {
   },
 });
 
-export default Calificacion;
+export default Evaluacion;

@@ -5,9 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const conection_1 = __importDefault(require("../db/conection"));
-const user_1 = __importDefault(require("./user"));
 const asignatura_1 = __importDefault(require("./asignatura"));
-const Asistencia = conection_1.default.define('Asistencia', {
+const Evaluacion = conection_1.default.define('Evaluacion', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -17,17 +16,9 @@ const Asistencia = conection_1.default.define('Asistencia', {
         type: sequelize_1.DataTypes.DATE,
         allowNull: false,
     },
-    presente: {
-        type: sequelize_1.DataTypes.BOOLEAN,
+    nombrePrueba: {
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-    },
-    UserId: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: user_1.default,
-            key: 'id',
-        },
     },
     AsignaturaId: {
         type: sequelize_1.DataTypes.INTEGER,
@@ -38,4 +29,4 @@ const Asistencia = conection_1.default.define('Asistencia', {
         },
     },
 });
-exports.default = Asistencia;
+exports.default = Evaluacion;

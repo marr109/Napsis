@@ -1,8 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/conection';
 import Curso from './curso';
-import Alumno from './alumno';
-import Contenido from './contenido';
+import User from './user';
 
 const Asignatura = sequelize.define('Asignatura', {
   id: {
@@ -14,11 +13,22 @@ const Asignatura = sequelize.define('Asignatura', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  CursoId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Curso,
+      key: 'id',
+    },
+  },
+  UserId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id',
+    },
+  },
 });
-
-Asignatura.belongsToMany(Alumno, { through: 'AlumnoAsignatura' });
-Alumno.belongsToMany(Asignatura, { through: 'AlumnoAsignatura' });
-Asignatura.belongsTo(Curso);
-Asignatura.hasMany(Contenido);
 
 export default Asignatura;

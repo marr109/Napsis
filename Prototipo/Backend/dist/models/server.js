@@ -17,7 +17,16 @@ exports.Server = void 0;
 const express_1 = __importDefault(require("express"));
 const user_1 = __importDefault(require("../routes/user"));
 const cors_1 = __importDefault(require("cors"));
-const user_2 = require("./user");
+const user_2 = __importDefault(require("./user"));
+const matriculas_1 = __importDefault(require("./matriculas"));
+const establecimiento_1 = __importDefault(require("./establecimiento"));
+const calificacion_1 = __importDefault(require("./calificacion"));
+const curso_1 = __importDefault(require("./curso"));
+const asignatura_1 = __importDefault(require("./asignatura"));
+const asistencia_1 = __importDefault(require("./asistencia"));
+const contenido_1 = __importDefault(require("./contenido"));
+const evaluacion_1 = __importDefault(require("./evaluacion"));
+const conection_1 = __importDefault(require("../db/conection"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -42,10 +51,21 @@ class Server {
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield user_2.User.sync();
+                yield conection_1.default.authenticate();
+                console.log('Connection has been established successfully.');
+                yield establecimiento_1.default.sync();
+                yield user_2.default.sync();
+                yield curso_1.default.sync();
+                yield asignatura_1.default.sync();
+                yield contenido_1.default.sync();
+                yield asistencia_1.default.sync();
+                yield calificacion_1.default.sync();
+                yield evaluacion_1.default.sync();
+                yield matriculas_1.default.sync();
+                console.log('All models were synchronized successfully.');
             }
             catch (error) {
-                console.log('database not found');
+                console.error('Unable to connect to the database:', error);
             }
         });
     }

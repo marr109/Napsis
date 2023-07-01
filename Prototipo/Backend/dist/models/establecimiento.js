@@ -5,30 +5,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const conection_1 = __importDefault(require("../db/conection"));
-const curso_1 = __importDefault(require("./curso"));
-const Alumno = conection_1.default.define('Alumno', {
+const Establecimiento = conection_1.default.define('Establecimiento', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+    },
+    nombre: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+    },
+    direccion: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+    },
+    telefono: {
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     email: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
-    nombre: {
+    insignea: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
-    },
-    Rut: {
-        type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
 });
-Alumno.belongsTo(curso_1.default);
-exports.default = Alumno;
+exports.default = Establecimiento;

@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const conection_1 = __importDefault(require("../db/conection"));
 const user_1 = __importDefault(require("./user"));
-const asignatura_1 = __importDefault(require("./asignatura"));
-const Asistencia = conection_1.default.define('Asistencia', {
+const curso_1 = __importDefault(require("./curso"));
+const Matricula = conection_1.default.define('Matricula', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -15,10 +15,6 @@ const Asistencia = conection_1.default.define('Asistencia', {
     },
     fecha: {
         type: sequelize_1.DataTypes.DATE,
-        allowNull: false,
-    },
-    presente: {
-        type: sequelize_1.DataTypes.BOOLEAN,
         allowNull: false,
     },
     UserId: {
@@ -29,13 +25,13 @@ const Asistencia = conection_1.default.define('Asistencia', {
             key: 'id',
         },
     },
-    AsignaturaId: {
+    CursoId: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: asignatura_1.default,
+            model: curso_1.default,
             key: 'id',
         },
     },
 });
-exports.default = Asistencia;
+exports.default = Matricula;

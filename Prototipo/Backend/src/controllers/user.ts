@@ -1,6 +1,10 @@
 import { Request, Response} from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../models/user';
+import  User  from '../models/user';
+import Calificacion from '../models/calificacion';
+import Asistencia from '../models/asistencia';
+import Evaluacion from '../models/evaluacion';
+import Asignatura from '../models/asignatura';
 import jwt from 'jsonwebtoken';
 
 export const newUser = async (req: Request, res: Response) => {
@@ -84,29 +88,53 @@ export const loginUser = async (req: Request, res: Response) => {
     res.json({token});
 }
 
-export const updateUser = async (req: Request, res: Response) => {
-    const { usuario, email, password,rol} = req.body;
-    const user: any = await User.findOne({ where: { usuario} });
-
-    if(user){
-        user.usuario = usuario || user.usuario;
-        user.email = email || user.email;
-        user.rol = rol || user.rol;
-
-        if(password){
-            user.password = await bcrypt.hash(password,10);
-        }
-
-        await user.save();
-
-        res.json({
-            msg: `Haz modificado tus datos de manera exitosa`,
-            data: user
-        });
-    }else {
-        res.status(404).json({
-            msg: `El usuario no ha sido encontrado`
-        })
+export const getAsistenciaAlumno = async (req: Request, res: Response) => {
+    const alumnoId = req.params.alumnoId;
+  
+    try {
+      const asistencias = await Asistencia.findAll({
+        where: { UserId: alumnoId },
+      });
+  
+      res.json(asistencias);
+    } catch (error) {
+      console.error('Error retrieving attendance:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
-
-}
+  }
+  
+  export const getCalificacionesAlumno = async (req: Request, res: Response) => {
+    const alumnoId = req.params.alumnoId;
+  
+    try {
+      const calificaciones = await Calificacion.findAll({
+        where: { UserId: alumnoId },
+      });
+  
+      res.json(calificaciones);
+    } catch (error) {
+      console.error('Error retrieving grades:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
+  
+  export const getCalendarioEvaluaciones = async (req: Request, res: Response) => {
+    const alumnoId = req.params.alumnoId;
+  
+    try {
+      const asignaturas = await Asignatura.findAll({
+        include: [
+          {
+            model: Evaluacion,
+            attributes: ['fecha', 'nombrePrueba'],
+          },
+        ],
+        where: { UserId: alumnoId },
+      });
+  
+      res.json(asignaturas);
+    } catch (error) {
+      console.error('Error retrieving evaluation calendar:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }

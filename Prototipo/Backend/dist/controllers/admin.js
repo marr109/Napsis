@@ -8,13 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.getUsers = exports.updateUser_1 = void 0;
-const user_1 = require("../models/user");
-// Modificar datos de un usuario por nombre de usuario
+exports.deleteUser = exports.getUserByEmail = exports.getUsers = exports.updateUser_1 = void 0;
+const user_1 = __importDefault(require("../models/user"));
+//Modificar datos de un usuario por nombre de usuario
 const updateUser_1 = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { usuario, rol } = req.body;
-    const user = yield user_1.User.findOne({ where: { usuario } });
+    const user = yield user_1.default.findOne({ where: { usuario } });
     try {
         if (!user) {
             return res.status(404).json({
@@ -35,10 +38,10 @@ const updateUser_1 = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.updateUser_1 = updateUser_1;
-// Obtener lista de usuarios
+//Obtener lista de usuarios
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const users = yield user_1.User.findAll();
+        const users = yield user_1.default.findAll();
         res.json(users);
     }
     catch (error) {
@@ -48,28 +51,30 @@ const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getUsers = getUsers;
-// Buscar un usuario por nombre de usuario
-// export const getUserByEmail = async (req: Request, res: Response) => {
-//   const { email } = req.body;
-//   try {
-//     const user = await User.findOne({ where: { email } });
-//     if (!user) {
-//       return res.status(404).json({
-//         msg: 'El correo electronico no ha sido encontrado'
-//       });
-//     }
-//     res.json(user);
-//   } catch (error) {
-//     res.status(500).json({
-//       msg: `Hubo un error al buscar el correo electronico`
-//     });
-//   }
-// };
-// Eliminar un usuario por nombre de usuario
+//Buscar un usuario por nombre de usuario
+const getUserByEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.body;
+    try {
+        const user = yield user_1.default.findOne({ where: { email } });
+        if (!user) {
+            return res.status(404).json({
+                msg: 'El correo electronico no ha sido encontrado'
+            });
+        }
+        res.json(user);
+    }
+    catch (error) {
+        res.status(500).json({
+            msg: `Hubo un error al buscar el correo electronico`
+        });
+    }
+});
+exports.getUserByEmail = getUserByEmail;
+///Eliminar un usuario por nombre de usuario
 const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { usuario } = req.params;
     try {
-        const user = yield user_1.User.findOne({ where: { usuario: usuario } });
+        const user = yield user_1.default.findOne({ where: { usuario: usuario } });
         if (!user) {
             return res.status(404).json({
                 msg: 'El usuario no ha sido encontrado'

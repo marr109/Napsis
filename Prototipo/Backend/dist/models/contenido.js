@@ -20,7 +20,13 @@ const Contenido = conection_1.default.define('Contenido', {
         type: sequelize_1.DataTypes.TEXT,
         allowNull: false,
     },
+    AsignaturaId: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: asignatura_1.default,
+            key: 'id',
+        },
+    },
 });
-Contenido.belongsTo(asignatura_1.default);
-asignatura_1.default.hasMany(Contenido);
 exports.default = Contenido;

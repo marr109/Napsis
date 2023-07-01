@@ -1,40 +1,33 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/conection';
 
-const User = sequelize.define('user', {
+const Establecimiento = sequelize.define('Establecimiento', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  usuario: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  password: {
+  nombre: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  rol: {
+  direccion: {
     type: DataTypes.STRING,
-    defaultValue: 'usuario',
     allowNull: false,
   },
   telefono: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  rut: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
-  }
+  },
+  insignea: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+
 });
 
-export default User;
+export default Establecimiento;

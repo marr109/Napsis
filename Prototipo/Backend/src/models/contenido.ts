@@ -16,9 +16,14 @@ const Contenido = sequelize.define('Contenido', {
     type: DataTypes.TEXT,
     allowNull: false,
   },
+  AsignaturaId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Asignatura,
+      key: 'id',
+    },
+  },
 });
-
-Contenido.belongsTo(Asignatura);
-Asignatura.hasMany(Contenido);
 
 export default Contenido;

@@ -11,9 +11,22 @@ const Profesor = conection_1.default.define('Profesor', {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
+    },
+    email: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
     },
     nombre: {
         type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+    },
+    password: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+    },
+    Rut: {
+        type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
 });
