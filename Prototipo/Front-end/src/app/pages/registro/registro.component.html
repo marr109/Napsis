@@ -1,7 +1,7 @@
 
 <div class="wrapper">
     <div class="body">
-        <img class="logo" src="../../../assets/images/perfil.png" alt="">
+        <img class="logo" src="../../../assets/img/napsisworld.png" alt="">
         <h1>Registro</h1>
         <form [formGroup]="formulario" (ngSubmit)="registro()" novalidate>
             <div class="form-group">
@@ -26,18 +26,33 @@
                     </li>
                     <li>
                         <div class="form-check">
-                            <div *ngIf="password.errors && password.dirty">
-                                <div *ngIf="password.hasError('required')" class="alert alert-danger">La contraseña es obligatoria</div>
-                                <div *ngIf="password.hasError('maxlength')" class="alert alert-danger">La contraseña tiene un máximo de caracteres</div>
-                        
+                            <div *ngIf="telefono.errors && telefono.dirty">
+                                <div *ngIf="telefono.hasError('required')" class="alert alert-danger">El telefono es obligatorio</div>
                             </div> 
-                            <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+                            <input type="number" class="form-control" placeholder="Telefono" formControlName="telefono">
+                        </div> 
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <div *ngIf="rut.errors && rut.dirty">
+                                <div *ngIf="rut.hasError('required')" class="alert alert-danger">El rut es obligario</div>
+                            </div> 
+                            <input type="rut" class="form-control" placeholder="Rut" formControlName="rut">
+                        </div> 
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <div *ngIf="password.errors && rut.dirty">
+                                <div *ngIf="password.hasError('required')" class="alert alert-danger">El rut es obligario</div>
+                            </div> 
+                            <input type="password" class="form-control" placeholder="Password" formControlName="password">
                         </div> 
                     </li>
                     <li>
                         <div class="d-grid gap-2">
                             <div class="g-recaptcha" data-sitekey="6LfSk8UmAAAAABMZACGFUVI7o9cOpuBepcQFFfrN"></div>
-                            <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Registrar</button>
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                            <!-- <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Registrar</button> -->
                         </div>      
                     </li>
                 </ul>

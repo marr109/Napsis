@@ -21,7 +21,7 @@ const evaluacion_1 = __importDefault(require("../models/evaluacion"));
 const asignatura_1 = __importDefault(require("../models/asignatura"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { usuario, email, password } = req.body;
+    const { usuario, email, password, telefono, rut } = req.body;
     //Validacion de existencia del usuario en la base de datos
     const userEmail = yield user_1.default.findOne({ where: { email } });
     if (userEmail) {
@@ -41,10 +41,12 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         yield user_1.default.create({
             usuario: usuario,
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            rut: rut,
+            telefono: telefono
         });
         res.json({
-            msg: `Usuario ${email} creado exitosamente`
+            msg: `Usuario ha sido creado exitosamente`
         });
     }
     catch (error) {
@@ -56,12 +58,12 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.newUser = newUser;
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { usuario, email, password, rol } = req.body;
+    const { usuario, email, password, rol, id } = req.body;
     //validamos si el usuario existe en la bd
-    const user = yield user_1.default.findOne({ where: { email } });
+    const user = yield user_1.default.findOne({ where: { usuario } });
     if (!user) {
         return res.status(400).json({
-            msg: `El correo ingresado ${email} no existe en la base de datos`
+            msg: `El usuario ingresado ${usuario} no existe en la base de datos`
         });
     }
     //validamos password
@@ -74,7 +76,6 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     //generamos token
     const token = jsonwebtoken_1.default.sign({
-        // rol : "usuario",
         rol: user.rol,
     }, process.env.SECRET_KEY || 'test', {
         expiresIn: '1hr'

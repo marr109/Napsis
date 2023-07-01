@@ -48,7 +48,7 @@ export class HeaderComponent {
   cerrarSesion(): void {
     this.authService.logout();
     alert("Sesion caducada");
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 }
 

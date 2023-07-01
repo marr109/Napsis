@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 
 export const newUser = async (req: Request, res: Response) => {
 
-    const { usuario, email, password } = req.body;
+    const { usuario, email, password, telefono, rut } = req.body;
 
     //Validacion de existencia del usuario en la base de datos
 
@@ -36,11 +36,13 @@ export const newUser = async (req: Request, res: Response) => {
         await User.create({
             usuario: usuario,
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            rut: rut,
+            telefono: telefono
         })
     
         res.json({
-            msg: `Usuario ${email} creado exitosamente`
+            msg: `Usuario ha sido creado exitosamente`
         })        
     } catch (error) {
         res.status(400).json({
@@ -53,15 +55,15 @@ export const newUser = async (req: Request, res: Response) => {
 
 export const loginUser = async (req: Request, res: Response) => {
 
-    const { usuario, email, password, rol } = req.body;
+    const { usuario, email, password, rol, id } = req.body;
     
     //validamos si el usuario existe en la bd
 
-    const user:any = await User.findOne({ where: { email } });
+    const user:any = await User.findOne({ where: { usuario } });
 
     if(!user){
         return res.status(400).json({
-            msg: `El correo ingresado ${email} no existe en la base de datos`
+            msg: `El usuario ingresado ${usuario} no existe en la base de datos`
         })
     }
 
@@ -79,8 +81,7 @@ export const loginUser = async (req: Request, res: Response) => {
     //generamos token
 
     const token = jwt.sign({
-        // rol : "usuario",
-        rol: user.rol,
+       rol: user.rol,
     }, process.env.SECRET_KEY || 'test', {
         expiresIn: '1hr'
     });

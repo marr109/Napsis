@@ -16,11 +16,11 @@ export class UserService {
     this.myApiUrl = 'api/users'
   }
 
-   registro(user: User): Observable<any> {
+  registro(user: User): Observable<any> {
     return this.http.post(`${this.myAppUrl}${this.myApiUrl}`, user);
   }
 
-   login(user: User): Observable<string> {
+  login(user: User): Observable<string> {
     return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}/login`, user)
   }
 

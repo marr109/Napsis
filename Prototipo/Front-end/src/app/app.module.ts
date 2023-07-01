@@ -23,7 +23,7 @@ import { ColegioComponent } from './pages/colegio/colegio.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
 import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 import { CalificacionesComponent } from './pages/calificaciones/calificaciones.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';  
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { CalificacionesComponent } from './pages/calificaciones/calificaciones.c
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

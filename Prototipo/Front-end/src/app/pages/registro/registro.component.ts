@@ -15,17 +15,24 @@ export class RegistroComponent implements OnInit {
   usuario: AbstractControl;
   email: AbstractControl;
   password:AbstractControl;
+  rut: AbstractControl;
+  telefono: AbstractControl;
+
 
   constructor(private form:FormBuilder, private _userService: UserService,
     private router: Router, private recaptchaService: RecaptchaService) {
     this.formulario=this.form.group({
       usuario:['',Validators.required],
       email:['',[Validators.required,Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      rut: ['', Validators.required],
+      telefono: ['', Validators.required]
     });
     this.usuario = this.formulario.controls['usuario'];
     this.email= this.formulario.controls['email'];  
     this.password=this.formulario.controls['password'];
+    this.rut= this.formulario.controls['rut'];  
+    this.telefono=this.formulario.controls['telefono'];
    }
 
    ngOnInit(): void {
@@ -39,7 +46,9 @@ export class RegistroComponent implements OnInit {
     const user: User = {
       usuario: this.usuario.value,
       email: this.email.value,
-      password: this.password.value
+      password: this.password.value,
+      telefono: this.telefono.value,
+      rut: this.rut.value
     }
 
     this._userService.registro(user).subscribe({

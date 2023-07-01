@@ -12,15 +12,15 @@ import { AuthService } from 'src/app/services/authorization/auth.service';
 })
 export class LoginComponent implements OnInit {
   formulario:FormGroup;
-  email: AbstractControl;
+  usuario: AbstractControl;
   password:AbstractControl;
 
   constructor(private form:FormBuilder, private _userService: UserService, private router: Router, private auth: AuthService) {
     this.formulario=this.form.group({
-      email:['',[Validators.required,Validators.email]],
+      usuario:['',[Validators.required,]],
       password: ['', Validators.required]
     });
-    this.email= this.formulario.controls['email'];  
+    this.usuario= this.formulario.controls['usuario'];  
     this.password=this.formulario.controls['password'];
    }
 
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     const user: User = {
-      email: this.email.value,
+      usuario: this.usuario.value,
       password: this.password.value
     }
 
