@@ -1,1 +1,18 @@
-<p>calificaciones works!</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calificacion of calificaciones">
+        <td>{{ calificacion.nombre }}</td>
+        <td>{{ calificacion.nota }}</td>
+      </tr>
+      <tr *ngIf="calificaciones.length === 0">
+        <td colspan="2">No hay calificaciones disponibles</td>
+      </tr>
+    </tbody>
+  </table>
+  

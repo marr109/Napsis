@@ -8,6 +8,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './services/authorizationGuard/auth.guard';
 import { ColegioComponent } from './pages/colegio/colegio.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
+import { CalificacionesComponent } from './pages/calificaciones/calificaciones.component';
+
 const routes: Routes = [
   {path: 'dashboard', component:DashboardComponent},
   {path: 'colegio', component:ColegioComponent},
@@ -18,7 +20,8 @@ const routes: Routes = [
   {path:'control', component:ControlComponent, canActivate: [AuthGuard], data: { roles: ['admin'] }},
   {path: 'inicio', component:InicioComponent},
   //{path: '**', redirectTo: 'login', pathMatch: 'full'}
-  {path: 'calendario', component:CalendarioComponent}
+  {path: 'calendario', component:CalendarioComponent},
+  {path: 'calificaciones', component:CalificacionesComponent}
 ];
 
 @NgModule({

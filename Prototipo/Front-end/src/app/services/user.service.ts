@@ -40,10 +40,21 @@ export class UserService {
     return this.http.delete(`${this.myAppUrl}${this.myApiUrl}/control${usuario}`);
   }
 
-
   getUserByEmail(email: string): Observable<any> {
     return this.http.get(`${this.myAppUrl}/users/${email}`);
   }
+
+  // Metodos para visualizar
+
+  getCalendarioEvaluaciones(alumnoId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/alumnos/${alumnoId}/calendario`);
+  }
+
+  getCalificacionesAlumnoAsignatura(alumnoId: number, asignaturaId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/alumnos/${alumnoId}/calificaciones/${asignaturaId}`);
+  }
+
+
 
 
 }
