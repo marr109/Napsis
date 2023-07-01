@@ -1,80 +1,21 @@
-$primary-color: #1A237E;
-$secondary-color: #3F51B5;
-$background-color: #ffffff;
-$primary-text-color: #424242;
-$secondary-text-color: #616161;
-$border-color: #E0E0E0;
-$button-color: #4CAF50;
-
-body {
-    font-family: Arial, sans-serif;
+.body{
+    width:calc(100% - 5rem);
+    height: 100vh;
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background: white;
+    padding: 3rem;
 }
 
-.contenedor{
-    height: 120%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: scroll;
-    margin: auto;
-
-    @media(max-width: 768px){
-        background-size: cover;
-        height: auto;
-    }
+.body-trimmed{
+    width: calc(100% - 16.5625rem);
+    margin-left: 16.5625;
 }
 
-.titulo-index {
-    h2 {
-        color: $primary-color;
-        text-align: center;
-        font-size: 1.6em;
-        padding: 20px 0;
-        margin: 0 0 5rem;
-    }
-
-    .display-6{
-        background-color: rgba($color: #d2f705, $alpha: 0.5) !important;
-        border-radius: 2rem;
-        min-width: min-content;
-    }
-}
-
-.contenido-index {
-    background-color: rgba($color: cyan, $alpha: 0.35);
-    border-radius: 2rem;
-
-    p {
-        text-align: justify;
-        color: $primary-text-color;
-        margin: 5rem ;
-        font-size: 18px;
-        color: black;
-    }
-
-    @media(max-width: 768px){
-        margin: 0 1rem 0 1rem;
-        p{
-            margin: 2rem;
-            font-size: 16px;
-        }
-    }
-}
-
-.publicaciones-index {
-    text-align: center;
-    margin: 20px 0;
-
-    .boton-index {
-        background-color: $secondary-color;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 4px;
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-    }
+.body-md-screen{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
 }

@@ -1,39 +1,29 @@
-<!-- <header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['inicio']">
-        <img src="assets/images/favicon.png" alt="Chile inclusivo">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">N
+      <img src="/Prototipo/Front-end/src/assets/img/napsisworld.png" alt="">
+    </button>
+    
+    
+    <div class="logo-text" *ngIf="collapsed">Napsis School</div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fa-solid fa-x"></i>
+    </button>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed"> {{data.label}} </span>
+
       </a>
+    </li>
+  </ul>
+</div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item" *ngIf="!sesionIniciada()"><a class="nav-link" [routerLink]="['login']">Iniciar sesión</a></li>
-          <li class="nav-item" *ngIf="sesionIniciada()"><a class="nav-link" [routerLink]="['donacion']">Donar</a></li>
-          <li class="nav-item" *ngIf="eresAdmin()"><a class="nav-link" [routerLink]="['control']">Panel de control</a></li>
-          <li class="nav-item" *ngIf="sesionIniciada()"><a class="nav-link" (click)="cerrarSesion()">Cerrar sesión</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>  -->
 
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="drawer.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Mi Aplicación</span>
-</mat-toolbar>
 
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" #drawer>
-    <h3>Opciones del Menú</h3>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </mat-drawer>
-</mat-drawer-container>
+
+
+
+

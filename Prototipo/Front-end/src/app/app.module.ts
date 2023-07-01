@@ -18,11 +18,9 @@ import { EditRolComponent } from './pages/edit-rol/edit-rol.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Necesario para los componentes de Angular Material
-import { MatToolbarModule } from '@angular/material/toolbar'; // Para mat-toolbar
-import { MatIconModule } from '@angular/material/icon'; // Para mat-icon
-import { MatButtonModule } from '@angular/material/button'; // Para button con mat-icon-button
-import { MatSidenavModule } from '@angular/material/sidenav'; // Para mat-drawer
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ColegioComponent } from './pages/colegio/colegio.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +34,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Para mat-drawer
     RegistroComponent,
     ControlComponent,
     EditRolComponent,
+    DashboardComponent,
+    ColegioComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,13 +47,10 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Para mat-drawer
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    BrowserAnimationsModule, // Necesario para los componentes de Angular Material
-    MatToolbarModule, // Para mat-toolbar
-    MatIconModule, // Para mat-icon
-    MatButtonModule, // Para button con mat-icon-button
-    MatSidenavModule, // Para mat-drawer
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
