@@ -20,6 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ColegioComponent } from './pages/colegio/colegio.component';
+import { CalendarioComponent } from './pages/calendario/calendario.component';
+import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
+import { CalificacionesComponent } from './pages/calificaciones/calificaciones.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { ColegioComponent } from './pages/colegio/colegio.component';
     EditRolComponent,
     DashboardComponent,
     ColegioComponent,
+    CalendarioComponent,
+    AsistenciaComponent,
+    CalificacionesComponent,
   ],
   imports: [
     BrowserModule,

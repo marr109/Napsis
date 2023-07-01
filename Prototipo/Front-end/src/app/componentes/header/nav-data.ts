@@ -33,5 +33,25 @@ export const navbarData = [
         routeLink: 'reportes',
         icon: 'fa-solid fa-bug',
         label:'Reportes'
+    },
+    {
+        routeLink: 'espacioAlumno',
+        icon: '',
+        label:'Espacio Alumnos'
+    },
+    {
+        routeLink: 'calendario',
+        icon: 'fa-solid fa-bug',
+        label:'Calendario de evaluaciones'
+    },
+    {
+        routeLink: 'asistencia',
+        icon: 'fa-solid fa-bug',
+        label:'Asistencia'
+    },
+    {
+        routeLink: 'calificaciones',
+        icon: 'fa-solid fa-bug',
+        label:'Calificaciones'
     }
 ];
