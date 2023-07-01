@@ -10,5 +10,5 @@ router.post('/login', user_1.loginUser);
 // metodos alumnos
 router.get('/alumnos/:alumnoId/asistencias', user_1.getAsistenciaAlumno);
 router.get('/alumnos/:alumnoId/calificaciones', user_1.getCalificacionesAlumno);
-router.get('/alumnos/:alumnoId/calendario-evaluaciones', user_1.getCalendarioEvaluaciones);
+router.get('/alumnos/:alumnoId/calendario', user_1.getCalendarioEvaluaciones);
 exports.default = router;
