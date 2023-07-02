@@ -111,10 +111,10 @@ export const getAsistenciaAlumno = async (req: Request, res: Response) => {
     try {
       const calificaciones = await Calificacion.findAll({
         where: { UserId: alumnoId},
-        // include: {
-        //   model: Asignatura,
-        //   attributes: ['nombre'],
-        // },
+        include: {
+          model: Asignatura,
+          attributes: ['nombre'],
+        },
       });
   
       res.json(calificaciones);
@@ -123,23 +123,6 @@ export const getAsistenciaAlumno = async (req: Request, res: Response) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   };
-
-  // export const getCalificacionesAlumno = async (req: Request, res: Response) => {
-  //   const alumnoId = req.params.alumnoId;
-  //   const asignaturaId = req.params.asignaturaId;
-  
-  //   try {
-  //     const calificaciones = await Calificacion.findAll({
-  //       where: { UserId: alumnoId, AsignaturaId: asignaturaId },
-  //       include: [{ model: Asignatura, attributes: ['nombre'] }]
-  //     });
-  
-  //     res.json(calificaciones);
-  //   } catch (error) {
-  //     console.error('Error retrieving grades:', error);
-  //     res.status(500).json({ error: 'Internal server error' });
-  //   }
-  // };
   
   
   export const getCalendarioEvaluaciones = async (req: Request, res: Response) => {
