@@ -54,8 +54,8 @@ export class UserService {
     return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/calificaciones/${asignaturaId}`);
   }
   
-  getAsistenciaAlumno(alumnoId: number): Observable<any> {
-    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/asistencia`);
+  getAsistenciaAlumno(alumnoId: number, asignaturaId: number): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrl}/${alumnoId}/asistencia/${asignaturaId}`);
   }
   
   

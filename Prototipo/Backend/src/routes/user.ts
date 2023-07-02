@@ -12,7 +12,7 @@ router.post('/login',loginUser);
 
 router.get('/:alumnoId/asistencias/:asignaturaId', getAsistenciaAlumno);
 router.get('/:alumnoId/calificaciones/:asignaturaId', getCalificacionesAlumno);
-router.get('/:alumnoId/calendario/', getCalendarioEvaluaciones);
+router.get('/:alumnoId/calendario', getCalendarioEvaluaciones);
 
 
 

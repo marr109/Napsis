@@ -1,21 +1,21 @@
 <div class="container">
     <h1>Asistencia a Clases</h1>
-
+  
     <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Asignatura</th>
-                <th scope="col">Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let asistencia of asistencias">
-                <td>{{ asistencia.asignatura }}</td>
-                <td>{{ asistencia.estado }}</td>
-            </tr>
-            <tr *ngIf="asistencias.length === 0">
-                <td colspan="2">No hay asistencias disponibles</td>
-            </tr>
-        </tbody>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Asignatura</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asistencia of asistencias">
+          <td>{{ asistencia.Asignatura.nombre }}</td>
+          <td>{{ asistencia.presente ? 'Presente' : 'Ausente' }}</td>
+        </tr>
+        <tr *ngIf="asistencias.length === 0">
+          <td colspan="2">No hay asistencias disponibles</td>
+        </tr>
+      </tbody>
     </table>
-</div>
+  </div>
