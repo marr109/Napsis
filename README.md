@@ -8,3 +8,5 @@ Se integro a la vez la capacidad de poder registrarse, pero debe ser modificado 
 
 El proyecto se ejecuta utilizando el comando ng serve -o en la ruta del Front-end, para cargar los datos se utiliza npm run dev en la ruta del backend y se debe tener activo xampp para poder utilizar la base de datos.
 
+Las instrucciones para poder utilizar el prototipo se encuentra dentro del zip, es un bloc de notas.
+
