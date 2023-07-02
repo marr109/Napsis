@@ -1,0 +1,43 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td {
+    &.estado {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+.empty-row {
+    td {
+        text-align: center;
+        font-style: italic;
+        color: #888;
+    }
+}

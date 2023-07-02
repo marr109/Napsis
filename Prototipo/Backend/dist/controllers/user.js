@@ -99,9 +99,14 @@ const getAsistenciaAlumno = (req, res) => __awaiter(void 0, void 0, void 0, func
 exports.getAsistenciaAlumno = getAsistenciaAlumno;
 const getCalificacionesAlumno = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const alumnoId = req.params.alumnoId;
+    const asignaturaId = req.params.asignaturaId;
     try {
         const calificaciones = yield calificacion_1.default.findAll({
             where: { UserId: alumnoId },
+            // include: {
+            //   model: Asignatura,
+            //   attributes: ['nombre'],
+            // },
         });
         res.json(calificaciones);
     }
@@ -111,6 +116,20 @@ const getCalificacionesAlumno = (req, res) => __awaiter(void 0, void 0, void 0, 
     }
 });
 exports.getCalificacionesAlumno = getCalificacionesAlumno;
+// export const getCalificacionesAlumno = async (req: Request, res: Response) => {
+//   const alumnoId = req.params.alumnoId;
+//   const asignaturaId = req.params.asignaturaId;
+//   try {
+//     const calificaciones = await Calificacion.findAll({
+//       where: { UserId: alumnoId, AsignaturaId: asignaturaId },
+//       include: [{ model: Asignatura, attributes: ['nombre'] }]
+//     });
+//     res.json(calificaciones);
+//   } catch (error) {
+//     console.error('Error retrieving grades:', error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// };
 const getCalendarioEvaluaciones = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const alumnoId = req.params.alumnoId;
     try {

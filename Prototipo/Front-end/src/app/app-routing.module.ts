@@ -9,6 +9,7 @@ import { AuthGuard } from './services/authorizationGuard/auth.guard';
 import { ColegioComponent } from './pages/colegio/colegio.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
 import { CalificacionesComponent } from './pages/calificaciones/calificaciones.component';
+import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 
 const routes: Routes = [
   {path: 'dashboard', component:DashboardComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'inicio', component:InicioComponent},
   //{path: '**', redirectTo: 'login', pathMatch: 'full'}
   {path: 'calendario', component:CalendarioComponent},
-  {path: 'calificaciones', component:CalificacionesComponent}
+  {path: 'calificaciones', component:CalificacionesComponent},
+  {path: 'asistencia', component: AsistenciaComponent}
 ];
 
 @NgModule({

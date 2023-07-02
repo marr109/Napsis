@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./asistencia.component.scss']
 })
 export class AsistenciaComponent {
-
+  asistencias: any[] = [];
 }

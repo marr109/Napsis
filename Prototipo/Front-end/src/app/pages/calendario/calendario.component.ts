@@ -25,7 +25,7 @@ export class CalendarioComponent implements OnInit {
   loadCalendarEvents() {
     const alumnoId = 1; // Reemplaza el valor estático con el ID del alumno actualmente conectado
     this.http
-      .get<any[]>('/api/alumnos/' + alumnoId + '/calendario')
+      .get<any[]>('/api/users/' + alumnoId + '/calendario')
       .subscribe((data) => {
         const events = data.flatMap((asignatura) =>
           asignatura.Evaluacions.map((evaluacion: any) => ({
